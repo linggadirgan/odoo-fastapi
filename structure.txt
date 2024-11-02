@@ -1,0 +1,27 @@
+fastapi_odoo_integration/
+│
+├── app/
+│   ├── main.py
+│   ├── core/
+│   │   ├── config.py
+│   │   ├── dependencies.py
+│   │   └── logger.py
+│   │
+│   ├── models/
+│   │   └── odoo_models.py
+│   │
+│   ├── routers/
+│   │   ├── api_v1/
+│   │   │   ├── __init__.py
+│   │   │   └── odoo_routes.py
+│   │   │
+│   ├── schemas/
+│   │   └── odoo_schemas.py
+│   │
+│   ├── services/
+│   │   └── odoo_client.py
+│   │
+│   └── utils/
+│       └── response_handler.py
+│
+└── requirements.txt
