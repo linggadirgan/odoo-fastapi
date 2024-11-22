@@ -8,7 +8,7 @@ app = FastAPI(
 )
 
 # Include routers
-app.include_router(odoo_routes.router, prefix="/api/v1/odoo", tags=["Odoo"])
+app.include_router(odoo_routes.router, prefix="/api/v1/odoo", tags=["Production Waste"])
 
 if __name__ == "__main__":
     import uvicorn

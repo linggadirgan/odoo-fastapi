@@ -1,12 +1,9 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional,List
 
-class OdooRequestSchema(BaseModel):
-    model: str
-    fields: list[str]
-    domain: Optional[list] = []
-
-class OdooResponseSchema(BaseModel):
-    id: int
-    name: str
-    additional_info: Optional[str]
+class WasteRecordSchema(BaseModel):
+    name: Optional[str]
+    production_id: Optional[str]
+    state: Optional[str]
+    waste_type_id: Optional[int]
+    user_id: Optional[int]

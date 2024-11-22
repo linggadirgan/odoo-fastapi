@@ -1,4 +1,4 @@
-fastapi_odoo_integration/
+fastapi/
 │
 ├── app/
 │   ├── main.py

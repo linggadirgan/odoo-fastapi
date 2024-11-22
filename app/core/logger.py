@@ -1,7 +1,7 @@
 import logging
 
 # Configuring the logger
-logger = logging.getLogger("fastapi_odoo_integration")
+logger = logging.getLogger("FastAPI")
 logger.setLevel(logging.DEBUG)
 
 # Console handler

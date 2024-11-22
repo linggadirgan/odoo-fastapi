@@ -1,20 +1,20 @@
-import xmlrpc.client
+import odoorpc
 from app.core.config import settings
 
 class OdooClient:
     def __init__(self):
-        self.url = settings.ODOO_URL
-        self.db = settings.ODOO_DB
-        self.username = settings.ODOO_USERNAME
-        self.password = settings.ODOO_PASSWORD
-        self.common = xmlrpc.client.ServerProxy(f'{self.url}/xmlrpc/2/common')
-        self.models = xmlrpc.client.ServerProxy(f'{self.url}/xmlrpc/2/object')
+        self.url = settings.ODOO_URL  
+        self.port = settings.ODOO_PORT  
+        self.db_name = settings.ODOO_DB  
+        self.username = settings.ODOO_USERNAME 
+        self.password = settings.ODOO_PASSWORD 
 
-        self.uid = self.common.authenticate(self.db, self.username, self.password, {})
+        self.odoo = odoorpc.ODOO(self.url, port=self.port)
+        self.odoo.login(self.db_name, self.username, self.password)
 
-    def get_records(self, model, fields, domain):
-        return self.models.execute_kw(
-            self.db, self.uid, self.password,
-            model, 'search_read',
-            [domain], {'fields': fields}
-        )
+    def get_env(self):
+        return self.odoo.env
+
+def connect_odoo() -> OdooClient:
+    client = OdooClient()
+    return client.get_env()
