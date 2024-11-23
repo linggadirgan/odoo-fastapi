@@ -15,4 +15,4 @@ def waste_record_list(params: WasteRecordSchema, odoo=Depends(connect_odoo)):
         else:
             return notfound_response(data=response)
     except Exception as e:
-        error_response(message=str(e))
+        return error_response(message=str(e))
